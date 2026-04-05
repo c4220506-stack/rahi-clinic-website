@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Plus Jakarta Sans - pre-bundled */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Rahi Clinic Brand Tokens (OKLCH raw L C H) */
+    /* Teal #48C6B9 */
+    --clinic-teal: 0.738 0.112 185;
+    /* Teal light (hover) */
+    --clinic-teal-light: 0.82 0.09 185;
+    /* Teal dark */
+    --clinic-teal-dark: 0.65 0.13 185;
+    /* Dark slate #2E3A43 */
+    --clinic-slate-dark: 0.305 0.032 222;
+    /* Mid grey #6B7A86 */
+    --clinic-slate-mid: 0.535 0.026 226;
+    /* Light bg #F4F6F8 */
+    --clinic-slate-light: 0.967 0.008 226;
+    /* Footer bg #8A9BAE */
+    --clinic-slate-footer: 0.648 0.038 226;
+    /* Gold stars #F2B01E */
+    --clinic-gold: 0.78 0.155 76;
+
+    /* Shadcn semantic tokens */
+    --background: 1 0 0;
+    --foreground: 0.305 0.032 222;
+    --card: 1 0 0;
+    --card-foreground: 0.305 0.032 222;
+    --popover: 1 0 0;
+    --popover-foreground: 0.305 0.032 222;
+    --primary: 0.738 0.112 185;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.967 0.008 226;
+    --secondary-foreground: 0.305 0.032 222;
+    --muted: 0.967 0.008 226;
+    --muted-foreground: 0.535 0.026 226;
+    --accent: 0.82 0.09 185;
+    --accent-foreground: 0.305 0.032 222;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.922 0.005 226;
+    --input: 0.922 0.005 226;
+    --ring: 0.738 0.112 185;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.738 0.112 185;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.967 0.008 226;
+    --sidebar-foreground: 0.305 0.032 222;
+    --sidebar-primary: 0.738 0.112 185;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.82 0.09 185;
+    --sidebar-accent-foreground: 0.305 0.032 222;
+    --sidebar-border: 0.922 0.005 226;
+    --sidebar-ring: 0.738 0.112 185;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .nav-link {
+    @apply text-slate-dark text-sm font-medium transition-colors duration-200 hover:text-teal relative;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-teal transition-all duration-200;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-slate-dark text-center;
+  }
+
+  .section-subtitle {
+    @apply text-slate-mid text-center text-base mt-3 max-w-xl mx-auto;
+  }
+}
